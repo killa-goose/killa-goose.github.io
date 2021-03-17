@@ -6,13 +6,22 @@
     <meta name="author" content="Greylag (TheAlmightyGoose/killa-goose)">
     <title>Greylag's TMH Compendium</title>
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css" integrity="sha256-rlQRIEywGeFAwUjmU9vLTshcui4Hn/WP++pVMIefSnY=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/brands.min.css" integrity="sha256-nNY7jOolBFwUYjxTjSZ1JRiljAxoJ5XOatMHiXbGWjc=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/all.css" integrity="sha256-5a0xpHkTzfwkcKzU4wSYL64rzPYgmIVf7PO4TB5/6jQ=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-ui-iconfont@2.3.2/jquery-ui.icon-font.min.css" integrity="sha256-WQHMT9AilNbX+Rgoiev2qRWXY3Z4pFLU1xiOopEB3wo=" crossorigin="anonymous">
   </head>
   <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
     <div class="container">
-      <a class="navbar-brand" href="#">TMH Compendium</a>
+      <a class="navbar-brand" href="#">TMH Compendium
+        <span class="fas fa-bible"></span>
+        <!-- <span class="fas fa-book-reader"></span> -->
+        <span class="fas fa-book-dead flip-h"></span>
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -54,11 +63,39 @@
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.slim.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <noscript>
-      <ul class="list-unstyled">
-        <li>Bootstrap 4.5.3</li>
-        <li>jQuery 3.5.1</li>
-      </ul>
-    </noscript>
+  <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+  $(function() {
+    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+      return new bootstrap.Popover(popoverTriggerEl)
+    });
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    });
+    /*var chmps = $.ajax({
+      url: "resources/data/championships.json",
+      success: function(result){
+        $('.container section:nth-child(2)').html(result);
+      }
+    });*/
+  });
+  </script>
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">This site has been made possible thanks to these resources/technologies:</span>
+        <a href="https://getbootstrap.com" target="_blank"><span class="bi bi-bootstrap-fill" data-bs-toggle="tooltip" data-bs-placement="top" title="Twitter Bootstrap 4"></span></a>
+        <a href="https://jquery.com" target="_blank"><span class="ui-icon ui-icon-jquery" data-bs-toggle="tooltip" data-bs-placement="top" title="jQuery"></span></a>
+        <a href="https://fontawesome.com" target="_blank"><span class="fab fa-font-awesome" data-bs-toggle="tooltip" data-bs-placement="top" title="Font Awesome"></span></a>
+        <a href="https://datatables.net" target="_blank"><span class="dt-js" data-bs-toggle="tooltip" data-bs-placement="top" title="DataTables"></span></a>
+        <noscript>
+        <ul class="list-unstyled">
+          <li>Bootstrap 4.5.3</li>
+          <li>jQuery 3.5.1</li>
+        </ul>
+      </noscript>
+      </div>
+    </footer>
   </body>
 </html>
