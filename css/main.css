@@ -1,6 +1,6 @@
 @font-face {
-        font-family: "jquery-ui";
-        src: url("//cdn.jsdelivr.net/npm/jquery-ui-iconfont@2.3.2/font/jquery-ui.woff2") format('woff2') !important;
+    font-family: "jquery-ui";
+    src: url("//cdn.jsdelivr.net/npm/jquery-ui-iconfont@2.3.2/font/jquery-ui.woff2") format('woff2') !important;
 }
       
 .container {
@@ -41,8 +41,8 @@
 .dt-js {
   position: relative;
   top: 2px;
-  background-position: bottom center;*/
-  background-image: url(https://www.datatables.net/favicon.ico);
+  background-position: center;
+  background-image: url("https://www.datatables.net/favicon.ico");
   display: inline-block;
   height: 16px;
   width: 16px;
