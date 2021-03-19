@@ -64,32 +64,8 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/underscore@1.12.1/underscore.js" crossorigin="anonymous"></script>
   <script src="https://backbonejs.org/backbone.js" crossorigin="anonymous"></script>
+  <script src="js/models.js"></script>
   <script src="js/index.js"></script>
-  <script>
-  $(function() {
-    var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-    var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-      return new bootstrap.Popover(popoverTriggerEl)
-    });
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-      return new bootstrap.Tooltip(tooltipTriggerEl)
-    });
-    var chmps = $.ajax({
-      url: "resources/data/championships.json",
-      success: function(data){
-        console.log('AJAX success!');
-        console.log(data);
-        //var o = jQuery.parseJSON(data);
-        //var o = JSON.parse(data);
-        $('.container section:nth-child(2)').text(JSON.stringify(data));
-      },
-      error: function(xhr, status, error) {
-        console.log(status, error);
-      }
-    });
-  });
-  </script>
     <footer class="footer">
       <div class="container">
         <span class="text-muted">This site has been made possible thanks to these resources/technologies:</span>
