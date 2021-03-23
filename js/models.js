@@ -19,8 +19,6 @@ var Championship = Backbone.Model.extend({
 var ChampionshipsCollection = Backbone.Collection.extend({
     model: Championship
 });
-var Championships = new ChampionshipsCollection();
-console.log(Championships);
 var ChampionshipView = Backbone.View.extend({
   el: $('#championships'),
   initialize: function() {
