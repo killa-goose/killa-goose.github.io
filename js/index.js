@@ -5,6 +5,8 @@ $(function() {
   });
   var Championships = new ChampionshipsCollection();
   var view = new ChampionshipView({collection: Championships});
+  Championships.fetch({reset: true});
+  /*
   var chmpsData = $.ajax({
     url: "resources/data/championships.json",
     success: function(data){
@@ -21,5 +23,5 @@ $(function() {
     error: function(xhr, status, error) {
       console.log(status, error);
     }
-  });
+  });*/
 });

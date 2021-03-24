@@ -13,22 +13,34 @@ var Stage = Backbone.Model.extend({
 var Championship = Backbone.Model.extend({
   defaults: {
     NStages: 0,
-    Name: ""
+    Name: "",
+    id: 0
   }
 });
 var ChampionshipsCollection = Backbone.Collection.extend({
-    model: Championship
+    model: Championship,
+    url: "/resources/data/championships.json"
 });
 var ChampionshipView = Backbone.View.extend({
   el: $('#championships'),
   initialize: function() {
-    this.render();
+    console.log('Starting ChampionshipView initialization');
+    this.listenTo(this.collection, 'reset', this.render);
+    //this.collection.fetch({reset:true});
+    //this.render();
   },
   render: function() {
-    $(this.el).append("<h1>Championships</h1>");
-    var htmlOut = '';
-    _.each(this.collection.models, function(model, index, list) {
-      console.log(model);
-    });
+    console.log('Starting ChampionshipView render');
+    if (this.collection.length > 0) {
+      var htmlOut = '<h1>Championships</h1>';
+      _.each(this.collection.models, function(model, index, list) {
+        htmlOut += '<br>';
+        htmlOut += JSON.stringify(model);
+        //console.log(htmlOut);
+      });
+      this.$el.append(htmlOut);
+    } else {
+      this.$el.html("<h1>Championships</h1>");
+    }
   },
 });
