@@ -23,22 +23,15 @@ var ChampionshipsCollection = Backbone.Collection.extend({
 });
 var ChampionshipView = Backbone.View.extend({
   el: $('#championships'),
+  template: _.templateFromUrl("/resources/templates/html/accordian.htm", this.collection),
   initialize: function() {
-    console.log('Starting ChampionshipView initialization');
     this.listenTo(this.collection, 'reset', this.render);
-    //this.collection.fetch({reset:true});
-    //this.render();
   },
   render: function() {
-    console.log('Starting ChampionshipView render');
     if (this.collection.length > 0) {
-      var htmlOut = '<h1>Championships</h1>';
-      _.each(this.collection.models, function(model, index, list) {
-        htmlOut += '<br>';
-        htmlOut += JSON.stringify(model);
-        //console.log(htmlOut);
-      });
-      this.$el.append(htmlOut);
+      this.$el.html(this.template({
+        collection: this.collection.toJSON()
+      }));
     } else {
       this.$el.html("<h1>Championships</h1>");
     }
