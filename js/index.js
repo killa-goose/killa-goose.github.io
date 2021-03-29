@@ -6,8 +6,11 @@ $(function() {
   });
   $('.nav-tabs').scrollingTabs({
     bootstrapVersion: 4,
+    cssClassLeftArrow: "bi bi-chevron-left",
+    cssClassRightArrow: "bi bi-chevron-right",
+    disableScrollArrowsOnFullyScrolled: true,
     scrollToTabEdge: true,
-    disableScrollArrowsOnFullyScrolled: true
+    
   });
   var Championships = new ChampionshipsCollection();
   var view = new ChampionshipView({collection: Championships});
