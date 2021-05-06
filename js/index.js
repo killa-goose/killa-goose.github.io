@@ -1,49 +1,22 @@
 $(function() {
-  // replaceTagName function to fix data-driven scrolling tabs
-  (function (a) {
-    a.fn.replaceTagName = function (f) {
-      let g = [],
-        h = this.length;
-      while (h--) {
-        let k = document.createElement(f),
-          b = this[h],
-          d = b.attributes;
-        for (let c = d.length - 1; c >= 0; c--) {
-          let j = d[c];
-          k.setAttribute(j.name, j.value)
-        }
-        k.innerHTML = b.innerHTML;
-        a(b).after(k).remove();
-        g[h - 1] = k
-      }
-      return a(g)
-    }
-  })(window.jQuery);
   // Enable Popper.js Tooltips
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
   });
+  // Enable Night Mode Toggle
   $('#nightModeSwitch').click( function() {
     $('body').toggleClass('bootstrap bootstrap-dark');
   });
-  let tabData = JSON.parse(document.getElementById('tabsJSON').innerHTML),
-    tabsPP = tabData.map(function(i, v) {
-      return function($li, $a) {
-        $a.addClass('nav-link');
-        $li.removeAttr('class');
-        $a.replaceTagName("button");
-      };
-    });
-  $('#navTabs').scrollingTabs({
-    tabs: tabData,
-    tabsPostProcessors: tabsPP,
-    bootstrapVersion: 4,
-    cssClassLeftArrow: "bi bi-chevron-left",
-    cssClassRightArrow: "bi bi-chevron-right",
-    disableScrollArrowsOnFullyScrolled: true,
-    enableSwiping: true,
-    scrollToTabEdge: true
+  // Github repos
+  let repos = [], projEl = $("#projects > .row")
+      repoTmpl = _.templateFromUrl('/resources/templates/html/repos.htm', {});
+  $.getJSON('//api.github.com/users/killa-goose/repos',{})
+    .done(function(data){
+      _.each(data, function(d) {
+        let div = repoTmpl({data: d});
+        projEl.append(div);
+      });
   });
   // Nav tab deep-linking
   let url = location.href.replace(/\/$/, "");
@@ -69,8 +42,4 @@ $(function() {
     tabUrl += "/";
     history.replaceState(null, null, tabUrl);
   });
-  //Initialise Backbone collections & views
-  var Championships = new ChampionshipsCollection();
-  var view = new ChampionshipView({collection: Championships});
-  Championships.fetch({reset: true});
 });
