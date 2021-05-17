@@ -1,2 +1,2 @@
-# tmh-compendium
-An unofficial, user-compiled wiki for the mobile game The Muscle Hustle (TMH), with bells &amp; whistles.
+# Goose's Projects
+A collection of poorly-coded tat that doesn't necessarily even do anything
